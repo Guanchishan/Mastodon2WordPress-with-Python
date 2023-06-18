@@ -18,10 +18,10 @@ def convert_to_wordpress_xml(data):
     for record in data:
         item = etree.SubElement(channel, 'item')
         title = etree.SubElement(item, 'title')
-        title.text = 'Liked via alive.bar (imported 2023-06-16)'  # post标题，可修改为你所要的
+        title.text = '标题 Title'  # post标题，可修改为你所要的
 
         creator = etree.SubElement(item, 'creator')
-        creator.text = 'sanguok'  # post作者，可修改为你所要的
+        creator.text = '作者 author'  # post作者，可修改为你所要的
 
         content_encoded = etree.SubElement(item, '{http://purl.org/rss/1.0/modules/content/}encoded')
         content = '<!-- wp:indieblocks/like --><div class="wp-block-indieblocks-like"><div class="u-like-of h-cite"><p><i>Likes <a class="u-url" href="{record}">a toot</a>.</i></p></div></div> <!-- /wp:indieblocks/like -->'
@@ -36,7 +36,7 @@ def convert_to_wordpress_xml(data):
         status.text = 'private'  # post可见状态
 
         post_type = etree.SubElement(item, 'post_type')
-        post_type.text = 'indieblocks_like'  # post类型
+        post_type.text = 'indieblocks_like'  # post类型，可修改为你所要的
 
     tree = etree.ElementTree(rss)
     return tree
